@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdrenalineRopeAccess.EfCore.Migrations
 {
-    [DbContext(typeof(AdrenalineContext))]
+    [DbContext(typeof(AdrenalineDbContext))]
     [Migration("20230712135257_init")]
     partial class init
     {

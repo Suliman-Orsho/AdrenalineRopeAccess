@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AdrenalineRopeAccess.Utils\AdrenalineRopeAccess.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

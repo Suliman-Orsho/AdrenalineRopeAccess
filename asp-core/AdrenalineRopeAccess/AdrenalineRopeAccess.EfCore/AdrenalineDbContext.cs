@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AdrenalineRopeAccess.EfCore
 {
-    public class AdrenalineContext : DbContext
+    public class AdrenalineDbContext : DbContext
     {
-        public AdrenalineContext(DbContextOptions<AdrenalineContext> options) : base(options)
+        public AdrenalineDbContext(DbContextOptions<AdrenalineDbContext> options) : base(options)
         {
         }
 

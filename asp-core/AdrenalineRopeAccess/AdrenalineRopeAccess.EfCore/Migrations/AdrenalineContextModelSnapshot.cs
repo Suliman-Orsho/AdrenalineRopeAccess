@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdrenalineRopeAccess.EfCore.Migrations
 {
-    [DbContext(typeof(AdrenalineContext))]
+    [DbContext(typeof(AdrenalineDbContext))]
     partial class AdrenalineContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
