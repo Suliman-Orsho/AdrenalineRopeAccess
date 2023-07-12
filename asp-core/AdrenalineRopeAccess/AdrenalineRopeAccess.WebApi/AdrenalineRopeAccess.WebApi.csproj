@@ -25,4 +25,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AdrenalineRopeAccess.EfCore\AdrenalineRopeAccess.EfCore.csproj" />
+  </ItemGroup>
+
 </Project>

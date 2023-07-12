@@ -1,4 +1,7 @@
 
+using AdrenalineRopeAccess.EfCore;
+using Microsoft.EntityFrameworkCore;
+
 namespace AdrenalineRopeAccess.WebApi
 {
     public class Program
@@ -7,7 +10,10 @@ namespace AdrenalineRopeAccess.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Add services to the container.            
+
+            builder.Services.AddDbContext<AdrenalineContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
