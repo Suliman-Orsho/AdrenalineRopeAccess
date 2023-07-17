@@ -11,6 +11,7 @@ namespace AdrenalineRopeAccess.WebApi.AutoMapperProfiles
             CreateMap<Employee, EmployeeDto>().ReverseMap();
             CreateMap<Employee, EmployeeListDto>();
             CreateMap<Employee, EmployeeDetailsDto>();
+            CreateMap<Employee, EmployeeInfoDto>();
 
         }
     }

@@ -1,13 +1,10 @@
-﻿namespace AdrenalineRopeAccess.Entities
+﻿namespace AdrenalineRopeAccess.Dtos.Equipments
 {
-    public class Equipment
+    public class EquipmentDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime EntryDate { get; set; }
         public int? ProjectId { get; set; }
-        public Project? Project { get; set; }
-
-        //public int Quantity { get; set; }
     }
 }

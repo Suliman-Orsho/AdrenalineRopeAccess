@@ -4,6 +4,7 @@ using AdrenalineRopeAccess.EfCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdrenalineRopeAccess.EfCore.Migrations
 {
     [DbContext(typeof(AdrenalineDbContext))]
-    partial class AdrenalineContextModelSnapshot : ModelSnapshot
+    [Migration("20230716125217_Project-OutGoings-Update")]
+    partial class ProjectOutGoingsUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +46,7 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Advances", (string)null);
+                    b.ToTable("Advances");
                 });
 
             modelBuilder.Entity("AdrenalineRopeAccess.Entities.Employee", b =>
@@ -89,7 +92,7 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("AdrenalineRopeAccess.Entities.Equipment", b =>
@@ -114,7 +117,7 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Equipments", (string)null);
+                    b.ToTable("Equipments");
                 });
 
             modelBuilder.Entity("AdrenalineRopeAccess.Entities.Project", b =>
@@ -156,7 +159,7 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Projects", (string)null);
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("EmployeeProject", b =>
@@ -171,7 +174,7 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasIndex("ProjectsId");
 
-                    b.ToTable("EmployeeProject", (string)null);
+                    b.ToTable("EmployeeProject");
                 });
 
             modelBuilder.Entity("AdrenalineRopeAccess.Entities.Advance", b =>

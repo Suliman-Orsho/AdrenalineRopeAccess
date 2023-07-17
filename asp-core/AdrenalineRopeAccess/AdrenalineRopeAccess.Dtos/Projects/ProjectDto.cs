@@ -1,13 +1,13 @@
 ﻿using AdrenalineRopeAccess.Utils.Enums;
 
-namespace AdrenalineRopeAccess.Entities
+namespace AdrenalineRopeAccess.Dtos.Projects
 {
-    public class Project
+    public class ProjectDto
     {
-        public Project()
+        public ProjectDto()
         {
-            Employees = new List<Employee>();
-            Equipments = new List<Equipment>();
+            EmployeeIds = new List<int>();
+            EquipmentIds = new List<int>();
         }
 
         public int Id { get; set; }
@@ -15,12 +15,13 @@ namespace AdrenalineRopeAccess.Entities
         public Work Work { get; set; }
         public int Income { get; set; }
         public bool IsPaid { get; set; }
-        public int? Spending { get; set; }
+        public int Spending { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? FinishDate { get; set; }
         public string ClientNumber { get; set; }
         public int LinesCount { get; set; }
-        public List<Employee> Employees { get; set; }
-        public List<Equipment> Equipments { get; set; }
+
+        public List<int> EmployeeIds { get; set; }
+        public List<int> EquipmentIds { get; set; }
     }
 }

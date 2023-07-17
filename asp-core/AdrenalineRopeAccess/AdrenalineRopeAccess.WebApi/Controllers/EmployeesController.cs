@@ -67,7 +67,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
         public async Task<IActionResult> EditEmployee(int id, EmployeeDto employeeDto)
         {
             var employee = await _context.Employees
-                                         .SingleAsync();
+                                         .SingleAsync(e => e.Id == id);
 
             _mapper.Map(employeeDto, employee);
 
