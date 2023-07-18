@@ -10,6 +10,8 @@ namespace AdrenalineRopeAccess.WebApi.AutoMapperProfiles
         {
             CreateMap<Equipment,EquipmentDto>().ReverseMap();
             CreateMap<Equipment,EquipmentInfoDto>();
+            CreateMap<Equipment,EquipmentListDto>();
+            CreateMap<Equipment,EquipmentDetailsDto>();
         }
     }
 }

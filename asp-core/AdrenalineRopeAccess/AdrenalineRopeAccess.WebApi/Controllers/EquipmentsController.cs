@@ -25,29 +25,31 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
 
         #region Actions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EquipmentDto>>> GetEquipments()
+        public async Task<ActionResult<IEnumerable<EquipmentListDto>>> GetEquipments()
         {
             var equipments = await _context.Equipments
+                                           .Include(e => e.Project)
                                            .ToListAsync();
 
-            var equipmentsDto = _mapper.Map<List<EquipmentDto>>(equipments);
+            var equipmentsDto = _mapper.Map<List<EquipmentListDto>>(equipments);
 
             return equipmentsDto;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<EquipmentDto>> GetEquipment(int id)
+        public async Task<ActionResult<EquipmentDetailsDto>> GetEquipment(int id)
         {
 
             var equipment = await _context.Equipments
-                                          .FindAsync(id);
+                                          .Include(e => e.Project)
+                                          .SingleAsync(e => e.Id == id);
 
             if (equipment == null)
             {
                 return NotFound();
             }
 
-            var equipmentDto = _mapper.Map<EquipmentDto>(equipment);
+            var equipmentDto = _mapper.Map<EquipmentDetailsDto>(equipment);
 
             return equipmentDto;
         }

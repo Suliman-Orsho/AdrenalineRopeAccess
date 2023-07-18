@@ -61,7 +61,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
 
             await UpdateProjectEmployees(projectDto.EmployeeIds, project);
 
-            await UpdateProjectEquipments(projectDto.EquipmentIds, project);
+          //await UpdateProjectEquipments(projectDto.EquipmentIds, project);
 
             _context.Projects.Add(project);
             await _context.SaveChangesAsync();
@@ -87,7 +87,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             {
                 await UpdateProjectEmployees(projectDto.EmployeeIds, project);
 
-                await UpdateProjectEquipments(projectDto.EquipmentIds, project);
+              //await UpdateProjectEquipments(projectDto.EquipmentIds, project);
 
                 await _context.SaveChangesAsync();
             }
@@ -112,13 +112,17 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
         public async Task<IActionResult> DeleteProject(int id)
         {
 
-            var project = await _context.Projects.FindAsync(id);
+            var project = await _context.Projects
+                                        .Include(p => p.Equipments)
+                                        .SingleAsync(p => p.Id == id);
+                      
+            
 
             if (project == null)
             {
                 return NotFound();
             }
-
+            _context.RemoveRange(project.Equipments);
             _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
 
@@ -143,16 +147,16 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             project.Employees.AddRange(employees);
         }
 
-        private async Task UpdateProjectEquipments(List<int> equipmentIds, Project project)
-        {
-            project.Equipments.Clear();
+        //private async Task UpdateProjectEquipments(List<int> equipmentIds, Project project)
+       // {
+       //     project.Equipments.Clear();
 
-            var equipments = await _context.Equipments
-                                          .Where(p => equipmentIds.Contains(p.Id))
-                                          .ToListAsync();
+      //      var equipments = await _context.Equipments
+        //                                  .Where(p => equipmentIds.Contains(p.Id))
+         //                                 .ToListAsync();
 
-            project.Equipments.AddRange(equipments);
-        }
+        //    project.Equipments.AddRange(equipments);
+      //  }
 
         private async Task<Project> GetProjectWithEmployeesAndEquipments(int projectId)
         {

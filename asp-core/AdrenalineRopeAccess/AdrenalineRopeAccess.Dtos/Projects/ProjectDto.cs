@@ -7,7 +7,7 @@ namespace AdrenalineRopeAccess.Dtos.Projects
         public ProjectDto()
         {
             EmployeeIds = new List<int>();
-            EquipmentIds = new List<int>();
+          //EquipmentIds = new List<int>();
         }
 
         public int Id { get; set; }
@@ -22,6 +22,6 @@ namespace AdrenalineRopeAccess.Dtos.Projects
         public int LinesCount { get; set; }
 
         public List<int> EmployeeIds { get; set; }
-        public List<int> EquipmentIds { get; set; }
+        //public List<int> EquipmentIds { get; set; }
     }
 }

@@ -13,8 +13,8 @@ namespace AdrenalineRopeAccess.WebApi.AutoMapperProfiles
             CreateMap<ProjectDto,Project>();
 
             CreateMap<Project, ProjectDto>()
-                .ForMember(dest => dest.EquipmentIds, opts => opts.MapFrom(src => src.Equipments.Select(p => p.Id)))
                 .ForMember(dest => dest.EmployeeIds, opts => opts.MapFrom(src => src.Employees.Select(p => p.Id)));
+             // .ForMember(dest => dest.EquipmentIds, opts => opts.MapFrom(src => src.Equipments.Select(p => p.Id)))
 
         }
     }
