@@ -23,7 +23,22 @@ namespace AdrenalineRopeAccess.WebApi
             builder.Services.AddDbContext<AdrenalineDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AdrenalineCors",
+                                  policy =>
+                                  {
+                                      policy
+                                        .WithOrigins("http://localhost:4200")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                                  });
+            });
+
+
             var app = builder.Build();
+
+            app.UseCors("AdrenalineCors");
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

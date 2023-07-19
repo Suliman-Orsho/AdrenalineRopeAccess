@@ -90,6 +90,23 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             return NoContent();
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<EmployeeDto>> GetEmployeeForEdit(int id)
+        {
+            var employee = await _context
+                                    .Employees
+                                    .SingleOrDefaultAsync(c => c.Id == id);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            var EmployeeDto = _mapper.Map<EmployeeDto>(employee);
+
+            return EmployeeDto;
+        }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(int id)
