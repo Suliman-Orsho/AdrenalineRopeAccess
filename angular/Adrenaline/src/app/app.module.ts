@@ -12,6 +12,11 @@ import { EmployeeDetailsComponent } from './employee/employee-details/employee-d
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 import { DeleteEmployeeComponent } from './employee/delete-employee/delete-employee.component';
+import { HomeComponent } from './home/home.component';
+import { AdvanceComponent } from './advance/advance.component';
+import { AdvanceDetailsComponent } from './advance/advance-details/advance-details.component';
+import { AddEditAdvanceComponent } from './advance/add-edit-advance/add-edit-advance.component';
+import { DeleteAdvanceComponent } from './advance/delete-advance/delete-advance.component';
 
 
 @NgModule({
@@ -21,7 +26,12 @@ import { DeleteEmployeeComponent } from './employee/delete-employee/delete-emplo
     AddEditEmployeeComponent,
     EmployeeDetailsComponent,
     EnumToArrayPipe,
-    DeleteEmployeeComponent
+    DeleteEmployeeComponent,
+    HomeComponent,
+    AdvanceComponent,
+    AdvanceDetailsComponent,
+    AddEditAdvanceComponent,
+    DeleteAdvanceComponent
   ],
   imports: [
     BrowserModule,

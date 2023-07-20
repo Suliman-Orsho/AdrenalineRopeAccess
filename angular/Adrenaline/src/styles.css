@@ -9,3 +9,162 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     
     cursor: pointer;
 }
+
+.section-title {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.section-sub-title {
+    color: #c6bcbc;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.hero {
+    margin-top: 6rem;
+}
+
+.bg-section {
+    background-color: black;
+}
+
+.main-title {
+    color: white;
+}
+
+.sub-title {
+    color: #9f887f;
+}
+
+.hero-title-btn {
+    padding-top: 50px;
+}
+
+
+.z-index {
+    z-index: 1;
+}
+
+.mt-8 {
+    margin-top: 8rem;
+}
+
+.font {
+    font-family: revert;
+    color: white;
+}
+
+.text {
+    color: #c6bcbc;
+    font-size: 18px;
+}
+
+.info-card {
+    background-color: #fff;
+    padding: 30px 26px 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+    .info-card .icon i {
+        font-size: 3.5rem;
+        color: #bb0d16;
+    }
+
+    .info-card .title {
+        font-weight: bold;
+        margin: 10px 0;
+        color: white;
+    }
+
+    .info-card > p{
+        color: white;
+    }
+
+.section-newsletter {
+    margin-top: 1.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+    .section-newsletter .title {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .section-newsletter .desc{
+        color: white;
+    }
+
+    .section-newsletter .input-group {
+        width: 50%;
+        margin: auto;
+    }
+
+.footer-size{
+    height: 75px;
+}
+
+.bg-layout{
+    background-color: black;
+}
+
+.section-info{
+    background-color: #151313;
+}
+
+.section-accordion {
+    background-color: black;
+    color: white;
+}
+
+.section-main-footer{
+    color: white;
+}
+
+.main-footer {
+    background-color: #151313 !important;
+}
+
+.view-text{
+    color: white;
+}
+
+.social-links {
+    margin: 1rem 0;
+}
+
+    .social-links .lnk {
+        float: left;
+        margin-left: 8px;
+        background-color: #dc3545;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        font-size: 1.4rem;
+    }
+
+        .social-links .lnk:first-child {
+            margin-left: 0;
+        }
+
+        .social-links .lnk a {
+            color: #fff !important;
+        }
+
+
+
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+    .back-to-top i {
+        color: #fff;
+    }

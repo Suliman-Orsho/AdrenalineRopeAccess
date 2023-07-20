@@ -129,7 +129,7 @@ export class AddEditEmployeeComponent implements OnInit {
       this.employeeSvc.createEmployee(this.employeeForm.value).subscribe({
         next: () => {
           this.snackBar.open("Employee has been created Successfully");
-          this.router.navigate(['employee']);
+          this.router.navigate(['employees']);
         },
         error: (err: HttpErrorResponse) => {
           this.snackBar.open(err.message);
@@ -142,7 +142,7 @@ export class AddEditEmployeeComponent implements OnInit {
       this.employeeSvc.editEmployee(this.employeeForm.value).subscribe({
         next: () => {
           this.snackBar.open("Employee has been updated Successfully");
-          this.router.navigate(['employee']);
+          this.router.navigate(['employees']);
         },
         error: (err: HttpErrorResponse) => {
           this.snackBar.open(err.message);

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Employee } from '../models/employees/employee.model';
 import { EmployeeDetails } from '../models/employees/employeeDetails.model';
 import { EmployeeList } from '../models/employees/employeeList.model';
+import { Lookup } from '../models/lookups/lookup.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +31,6 @@ export class EmployeeService {
     return this.http.get<Employee>(`${this.apiUrl}/GetEmployeeForEdit/${employeeId}`);
   }
 
-
   createEmployee(employee: Employee): Observable<any> {
     
     return this.http.post<Employee>(`${this.apiUrl}/CreateEmployee`, employee);
@@ -43,5 +44,10 @@ export class EmployeeService {
   deleteEmployee(employeeId: number): Observable<any> {
 
     return this.http.delete<Employee>(`${this.apiUrl}/DeleteEmployee/${employeeId}`);
+  }
+
+  getEmployeesLookup(): Observable<Lookup[]> {
+
+    return this.http.get<Lookup[]>(`${this.apiUrl}/GetEmployeesLookup`);
   }
 }

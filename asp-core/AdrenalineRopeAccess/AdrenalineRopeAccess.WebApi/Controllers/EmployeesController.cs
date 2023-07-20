@@ -4,6 +4,7 @@ using AdrenalineRopeAccess.EfCore;
 using AdrenalineRopeAccess.Entities;
 using AutoMapper;
 using AdrenalineRopeAccess.Dtos.Employees;
+using AdrenalineRopeAccess.Dtos.Lookups;
 
 namespace AdrenalineRopeAccess.WebApi.Controllers
 {
@@ -123,7 +124,16 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
-        } 
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<LookupDto>>> GetEmployeesLookup()
+        {
+            return await _context
+                        .Employees
+                        .Select(p => new LookupDto { Id = p.Id, Name = p.FullName })
+                        .ToListAsync();
+        }
         #endregion
 
         #region Private Methods

@@ -4,6 +4,9 @@ using AdrenalineRopeAccess.EfCore;
 using AdrenalineRopeAccess.Entities;
 using AutoMapper;
 using AdrenalineRopeAccess.Dtos.Advances;
+using AdrenalineRopeAccess.Dtos.Lookups;
+using AdrenalineRopeAccess.Dtos.Employees;
+using AdrenalineRopeAccess.Dtos.Projects;
 
 namespace AdrenalineRopeAccess.WebApi.Controllers
 {
@@ -53,12 +56,30 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             return advanceDto;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<AdvanceDto>> GetAdvanceForEdit(int id)
+        {
+            var advance = await _context
+                                    .Advances
+                                    .SingleOrDefaultAsync(c => c.Id == id);
+
+            if (advance == null)
+            {
+                return NotFound();
+            }
+
+            var advanceDto = _mapper.Map<AdvanceDto>(advance);
+
+            return advanceDto;
+        }
+
         [HttpPost]
         public async Task<ActionResult> CreateAdvance(AdvanceDto advanceDto)
         {
             var advance = _mapper.Map<Advance>(advanceDto);
-
             advance.AdvanceDate = DateTime.Now;
+
+            advance.Employee = await _context.Employees.Where(c => c.Id == advanceDto.EmployeeId).SingleAsync();
 
             _context.Advances.Add(advance);
             await _context.SaveChangesAsync();
@@ -109,7 +130,16 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
-        } 
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<LookupDto>>> GetAdvancesLookup()
+        {
+            return await _context
+                        .Advances
+                        .Select(p => new LookupDto { Id = p.Id, Name = p.Employee.FullName })
+                        .ToListAsync();
+        }
         #endregion
 
         #region Private Methods

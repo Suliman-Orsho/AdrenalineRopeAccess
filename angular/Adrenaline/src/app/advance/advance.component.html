@@ -1,0 +1,51 @@
+<div class="container mt-3">
+
+    <h1>Advances</h1>
+  
+    <button mat-raised-button color="primary" [routerLink]="['/advances/add']">Add New Advance</button>
+  
+      <table mat-table [dataSource]="advanceDS" class="mat-elevation-z2 w-100 mt-3">
+  
+          <ng-container matColumnDef="employeeFullName">
+          <th mat-header-cell *matHeaderCellDef> Employee Name </th>
+          <td mat-cell *matCellDef="let advance"> {{advance.employeeFullName}} </td>
+          </ng-container>
+      
+      
+          <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let advance"> {{advance.amount | currency}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="advanceDate">
+          <th mat-header-cell *matHeaderCellDef> Advance Date </th>
+          <td mat-cell *matCellDef="let advance"> {{advance.advanceDate | date: 'short'}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let advance">
+                  <a [routerLink]="['/advances/edit', advance?.id]" title="Edit">
+                      <i class="fa-solid fa-marker"></i>
+                    </a>
+                    <a class="ms-3" [routerLink]="['/advances/details', advance.id]" title="Details">
+                      <i class="fa-solid fa-circle-info text-info"></i>
+                    </a>
+                    <a class="ms-3 pointer" title="Delete" (click)="openDeleteDialog(advance)">
+                      <i class="fa-solid fa-trash text-danger"></i>
+                    </a>
+              </td>
+            </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="advanceColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: advanceColumns;"></tr>
+      </table>
+  
+      <div class="mt-2">
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+  </div>  
+    
