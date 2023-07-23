@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatNativeDateModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule
   ]
 })
 export class SharedModule { }

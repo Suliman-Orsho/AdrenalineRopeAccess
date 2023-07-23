@@ -7,6 +7,9 @@ import { AddEditEmployeeComponent } from './employee/add-edit-employee/add-edit-
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { HomeComponent } from './home/home.component';
+import { AddEditProjectComponent } from './projects/add-edit-project/add-edit-project.component';
+import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
+import { ProjectComponent } from './projects/project.component';
 
 const routes: Routes = [
 
@@ -23,10 +26,10 @@ const routes: Routes = [
   {path: 'advances/add', component: AddEditAdvanceComponent},
   {path: 'advances/edit/:id', component: AddEditAdvanceComponent},
 
-  // {path: 'projects', component: ProjectComponent},
-  // {path: 'projects/details/:id', component: ProjectDetailsComponent},
-  // {path: 'projects/add', component: AddEditProjectComponent},
-  // {path: 'projects/edit/:id', component: AddEditProjectComponent},
+  {path: 'projects', component: ProjectComponent},
+  {path: 'projects/details/:id', component: ProjectDetailsComponent},
+  {path: 'projects/add', component: AddEditProjectComponent},
+  {path: 'projects/edit/:id', component: AddEditProjectComponent},
 
   // {path: 'equipments', component: EquipmentComponent},
   // {path: 'equipments/details/:id', component: EquipmentDetailsComponent},

@@ -17,6 +17,10 @@ import { AdvanceComponent } from './advance/advance.component';
 import { AdvanceDetailsComponent } from './advance/advance-details/advance-details.component';
 import { AddEditAdvanceComponent } from './advance/add-edit-advance/add-edit-advance.component';
 import { DeleteAdvanceComponent } from './advance/delete-advance/delete-advance.component';
+import { ProjectComponent } from './projects/project.component';
+import { AddEditProjectComponent } from './projects/add-edit-project/add-edit-project.component';
+import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
+import { DeleteProjectComponent } from './projects/delete-project/delete-project.component';
 
 
 @NgModule({
@@ -31,7 +35,11 @@ import { DeleteAdvanceComponent } from './advance/delete-advance/delete-advance.
     AdvanceComponent,
     AdvanceDetailsComponent,
     AddEditAdvanceComponent,
-    DeleteAdvanceComponent
+    DeleteAdvanceComponent,
+    ProjectComponent,
+    AddEditProjectComponent,
+    ProjectDetailsComponent,
+    DeleteProjectComponent
   ],
   imports: [
     BrowserModule,

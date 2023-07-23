@@ -1,0 +1,58 @@
+<div class="container mt-3">
+
+    <h2>Project: <span class="text-primary">{{ project.name }}</span></h2>
+
+    <hr>
+    
+      
+        <div class="row mt-2">
+          <div class="col-md-2 fw-bold">Id</div>
+          <div class="col-md-4">{{ project.id}}</div>
+        </div>
+      
+        <div class="row mt-2">
+          <div class="col-md-2 fw-bold">Work</div>
+          <div class="col-md-4">{{work[project.work]}}</div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Income</div>
+            <div class="col-md-4">{{ project.income | currency}}</div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Spending</div>
+            <div class="col-md-4">{{project.spending | currency}}</div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">IsPaid</div>
+            <div class="col-md-4">{{project.isPaid}}</div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Lines Count</div>
+            <div class="col-md-4">{{project.linesCount}}</div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Client Number</div>
+            <div class="col-md-4">{{ project.clientNumber}}</div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Start Date</div>
+            <div class="col-md-4">{{ project.startDate | date: 'short'}}</div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Finish Date</div>
+            <div class="col-md-4">{{ project.finishDate | date: 'short'}}</div>
+        </div>
+
+    <div class="btns mt-3">
+        <button class="btn btn-secondary" [routerLink]="['/projects']">Back</button>
+        <button class="btn btn-primary ms-2" [routerLink]="['/projects/edit', project.id]">Edit</button>
+    </div>
+
+</div>

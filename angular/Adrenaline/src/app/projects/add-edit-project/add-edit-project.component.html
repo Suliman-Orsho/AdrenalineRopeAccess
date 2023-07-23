@@ -1,0 +1,126 @@
+<div class="container my-3">
+    <h2>
+  
+      <ng-container *ngIf="pageMode == pageModeEnum.add; else pageTitleElse">
+        <span>Add Project</span>
+      </ng-container>
+      <ng-template #pageTitleElse>
+        Edit Project <span class="text-danger">#{{ project?.id }}</span>
+      </ng-template>
+  
+    </h2>
+  
+    <hr>
+  
+    <form [formGroup]="projectForm" (ngSubmit)="submitForm()">
+      <div class="row">
+  
+        <div class="col-md-6">
+  
+            <div>
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Project Name</mat-label>
+                  <input matInput placeholder="Project Name" formControlName="name">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Work</mat-label>
+                  <mat-select formControlName="work">
+                    <mat-option *ngFor="let work of workEnum | enumToArray" [value]="work.index">
+                      {{ work.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+  
+          <div>
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Employees</mat-label>
+              <mat-select formControlName="employeeIds" multiple>
+                <mat-option *ngFor="let lookup of employeesLookup" [value]="lookup.id">
+                  {{lookup.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+  
+          <div>
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Income</mat-label>
+              <input matInput placeholder="Income" formControlName="income">
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Spendings</mat-label>
+              <input matInput placeholder="Spendings" formControlName="spending">
+            </mat-form-field>
+          </div>
+  
+        </div>
+
+        <div class="col-md-6">
+
+            <div>
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Lines Count</mat-label>
+                  <input matInput placeholder="Lines Count" formControlName="linesCount">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Client Number</mat-label>
+                  <input matInput placeholder="Client Number" formControlName="clientNumber">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="w-100">
+                  <mat-label>Start Date</mat-label>
+                  <input matInput [matDatepicker]="startDatePicker" formControlName="startDate">
+                  <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+      
+              <div>
+                <mat-form-field class="w-100">
+                  <mat-label>Finish Date</mat-label>
+                  <input matInput [matDatepicker]="finishDatePicker" formControlName="finishDate">
+                  <mat-datepicker-toggle matSuffix [for]="finishDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #finishDatePicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field class="w-100">
+                    <input matInput [hidden]="true">
+                  <mat-checkbox formControlName="isPaid">IsPaid</mat-checkbox>
+                </mat-form-field>
+              </div>
+        </div>
+      </div>
+  
+      <div class="mt-3">
+  
+        <button mat-raised-button [routerLink]="['/projects']">Cancel</button>
+  
+        <button type="submit" mat-raised-button color="primary" class="ms-2">
+          <ng-container *ngIf="pageMode == pageModeEnum.add; else formSubmitButtonName">
+            Create
+          </ng-container>
+          <ng-template #formSubmitButtonName>
+            Save
+          </ng-template>
+        </button>
+  
+  
+      </div>
+  
+    </form>
+  
+  </div>

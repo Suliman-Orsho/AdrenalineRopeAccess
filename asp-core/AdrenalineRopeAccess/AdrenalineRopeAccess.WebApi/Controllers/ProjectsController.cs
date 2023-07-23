@@ -5,6 +5,7 @@ using AdrenalineRopeAccess.Entities;
 using AutoMapper;
 using AdrenalineRopeAccess.Dtos.Projects;
 using NuGet.Packaging;
+using AdrenalineRopeAccess.Dtos.Employees;
 
 namespace AdrenalineRopeAccess.WebApi.Controllers
 {
@@ -78,7 +79,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             }
 
 
-            var project = await GetProjectWithEmployeesAndEquipments(id);
+            var project = await GetProjectWithEmployees(id);
 
 
             _mapper.Map(projectDto, project);
@@ -106,7 +107,23 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             return NoContent();
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ProjectDto>> GetProjectForEdit(int id)
+        {
+            var project = await _context
+                                    .Projects
+                                    .Include(p => p.Employees)
+                                    .SingleOrDefaultAsync(c => c.Id == id);
 
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            var projectDto = _mapper.Map<ProjectDto>(project);
+
+            return projectDto;
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProject(int id)
@@ -158,12 +175,11 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
         //    project.Equipments.AddRange(equipments);
       //  }
 
-        private async Task<Project> GetProjectWithEmployeesAndEquipments(int projectId)
+        private async Task<Project> GetProjectWithEmployees(int projectId)
         {
             return await _context
                             .Projects
                             .Include(o => o.Employees)
-                            .Include(o => o.Equipments)
                             .Where(o => o.Id == projectId)
                             .SingleAsync();
         }
