@@ -76,8 +76,8 @@ export class AddEditProjectComponent implements OnInit {
       income: ['', Validators.required],
       isPaid:['', Validators.required],
       spending:['', Validators.required],
-      startDate:[''],
-      finishDate:[''],
+      startDate:[],
+      finishDate:[],
       clientNumber:['', Validators.required],
       linesCount:['', Validators.required],
       employeeIds: ['', Validators.required]

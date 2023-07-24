@@ -1,4 +1,5 @@
 import { Work } from "src/app/enums/work.enum";
+import { EmployeeList } from "../employees/employeeList.model";
 
 export interface ProjectList {
     id: number;
@@ -8,5 +9,5 @@ export interface ProjectList {
     isPaid: boolean;
     spending: number;
     startDate: string;
-    finishDate: string;
+    finishDate: string;    
 }

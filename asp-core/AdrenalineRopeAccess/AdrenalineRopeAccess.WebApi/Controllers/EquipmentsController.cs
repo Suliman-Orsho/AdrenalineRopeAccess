@@ -5,6 +5,7 @@ using AdrenalineRopeAccess.Entities;
 using AutoMapper;
 using AdrenalineRopeAccess.Dtos.Equipments;
 using AdrenalineRopeAccess.Dtos.Projects;
+using AdrenalineRopeAccess.Dtos.Advances;
 
 namespace AdrenalineRopeAccess.WebApi.Controllers
 {
@@ -50,6 +51,24 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             }
 
             var equipmentDto = _mapper.Map<EquipmentDetailsDto>(equipment);
+
+            return equipmentDto;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<EquipmentDto>> GetEquipmentForEdit(int id)
+        {
+            var equipment = await _context
+                                    .Equipments
+                                    .Include(e => e.Project)
+                                    .SingleOrDefaultAsync(c => c.Id == id);
+
+            if (equipment == null)
+            {
+                return NotFound();
+            }
+
+            var equipmentDto = _mapper.Map<EquipmentDto>(equipment);
 
             return equipmentDto;
         }

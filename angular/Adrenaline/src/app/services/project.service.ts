@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Lookup } from '../models/lookups/lookup.model';
 import { Project } from '../models/projects/project.model';
 import { ProjectDetails } from '../models/projects/projectDetails.model';
 import { ProjectList } from '../models/projects/projectList.model';
@@ -44,8 +45,8 @@ export class ProjectService {
     return this.http.delete<Project>(`${this.apiUrl}/DeleteProject/${projectId}`);
   }
 
-  // getProjectsLookup(): Observable<Lookup[]> {
+  getProjectsLookup(): Observable<Lookup[]> {
 
-  //   return this.http.get<Lookup[]>(`${this.apiUrl}/GetProjectsLookup`);
-  // }
+    return this.http.get<Lookup[]>(`${this.apiUrl}/GetProjectsLookup`);
+  }
 }

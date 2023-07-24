@@ -6,6 +6,7 @@ using AutoMapper;
 using AdrenalineRopeAccess.Dtos.Projects;
 using NuGet.Packaging;
 using AdrenalineRopeAccess.Dtos.Employees;
+using AdrenalineRopeAccess.Dtos.Lookups;
 
 namespace AdrenalineRopeAccess.WebApi.Controllers
 {
@@ -53,6 +54,15 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             var projectDto = _mapper.Map<ProjectDetailsDto>(project);
 
             return projectDto;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<LookupDto>>> GetProjectsLookup()
+        {
+            return await _context
+                        .Projects
+                        .Select(p => new LookupDto { Id = p.Id, Name = p.Name })
+                        .ToListAsync();
         }
 
         [HttpPost]

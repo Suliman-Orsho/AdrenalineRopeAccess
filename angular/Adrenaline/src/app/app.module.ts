@@ -21,6 +21,10 @@ import { ProjectComponent } from './projects/project.component';
 import { AddEditProjectComponent } from './projects/add-edit-project/add-edit-project.component';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { DeleteProjectComponent } from './projects/delete-project/delete-project.component';
+import { EquipmentComponent } from './equipments/equipment.component';
+import { EquipmentDetailsComponent } from './equipments/equipment-details/equipment-details.component';
+import { AddEditEquipmentComponent } from './equipments/add-edit-equipment/add-edit-equipment.component';
+import { DeleteEquipmentComponent } from './equipments/delete-equipment/delete-equipment.component';
 
 
 @NgModule({
@@ -39,7 +43,11 @@ import { DeleteProjectComponent } from './projects/delete-project/delete-project
     ProjectComponent,
     AddEditProjectComponent,
     ProjectDetailsComponent,
-    DeleteProjectComponent
+    DeleteProjectComponent,
+    EquipmentComponent,
+    EquipmentDetailsComponent,
+    AddEditEquipmentComponent,
+    DeleteEquipmentComponent
   ],
   imports: [
     BrowserModule,

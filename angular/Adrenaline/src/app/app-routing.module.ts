@@ -6,6 +6,9 @@ import { AdvanceComponent } from './advance/advance.component';
 import { AddEditEmployeeComponent } from './employee/add-edit-employee/add-edit-employee.component';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { AddEditEquipmentComponent } from './equipments/add-edit-equipment/add-edit-equipment.component';
+import { EquipmentDetailsComponent } from './equipments/equipment-details/equipment-details.component';
+import { EquipmentComponent } from './equipments/equipment.component';
 import { HomeComponent } from './home/home.component';
 import { AddEditProjectComponent } from './projects/add-edit-project/add-edit-project.component';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
@@ -31,10 +34,10 @@ const routes: Routes = [
   {path: 'projects/add', component: AddEditProjectComponent},
   {path: 'projects/edit/:id', component: AddEditProjectComponent},
 
-  // {path: 'equipments', component: EquipmentComponent},
-  // {path: 'equipments/details/:id', component: EquipmentDetailsComponent},
-  // {path: 'equipments/add', component: AddEditEquipmentComponent},
-  // {path: 'equipments/edit/:id', component: AddEditEquipmentComponent},
+  {path: 'equipments', component: EquipmentComponent},
+  {path: 'equipments/details/:id', component: EquipmentDetailsComponent},
+  {path: 'equipments/add', component: AddEditEquipmentComponent},
+  {path: 'equipments/edit/:id', component: AddEditEquipmentComponent},
 
 ];
 
