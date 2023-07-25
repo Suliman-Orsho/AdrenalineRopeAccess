@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImageUploaderConfig } from 'src/app/directives/image-uploader/image-uploader.config';
+import { UploaderMode, UploaderStyle, UploaderType } from 'src/app/directives/image-uploader/uploader.enums';
+import { UploaderImage } from 'src/app/directives/image-uploader/UploaderImage.data';
 import { PageMode } from 'src/app/enums/pageMode.enum';
 import { Equipment } from 'src/app/models/equipments/equipment.model';
 import { Lookup } from 'src/app/models/lookups/lookup.model';
@@ -15,6 +18,9 @@ import { ProjectService } from 'src/app/services/project.service';
   styleUrls: ['./add-edit-equipment.component.css']
 })
 export class AddEditEquipmentComponent implements OnInit {
+
+  images: UploaderImage[] = [];
+  uploaderConfig = new ImageUploaderConfig(UploaderStyle.Normal, UploaderMode.AddEdit, UploaderType.Multiple);
 
   equipmentForm!: FormGroup;
   projectLookup: Lookup[] = [];
@@ -63,6 +69,13 @@ export class AddEditEquipmentComponent implements OnInit {
     }
   }
 
+  uploadFinished(uploaderImages: UploaderImage[]) {
+
+    this.equipmentForm.patchValue({
+      images: uploaderImages
+    });
+  }
+
   //#region Private Functions
 
   private buildForm(): void {
@@ -71,7 +84,8 @@ export class AddEditEquipmentComponent implements OnInit {
       id: [0],
       name: ['', Validators.required],
       entryDate: ['', Validators.required],
-      projectId: []
+      projectId: [],
+      images: [[]]
     });
   }
 
@@ -99,6 +113,10 @@ export class AddEditEquipmentComponent implements OnInit {
       next: (equipmentFromApi: Equipment) => {
         this.equipment = equipmentFromApi;
         this.patchEquipmentForm();
+
+        if (equipmentFromApi.images) {
+          this.images = equipmentFromApi.images;
+        }
       },
       error: (err: HttpErrorResponse) => {
         this.snackBar.open(err.message);
@@ -112,7 +130,8 @@ export class AddEditEquipmentComponent implements OnInit {
       id: this.equipment.id,
       name: this.equipment.name,
       entryDate: this.equipment.entryDate,
-      projectId: this.equipment.projectId
+      projectId: this.equipment.projectId,
+      images: this.equipment.images
     });
   }
 

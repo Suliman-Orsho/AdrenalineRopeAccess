@@ -15,7 +15,7 @@
     <form [formGroup]="equipmentForm" (ngSubmit)="submitForm()">
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-5">
 
             <div>
                 <mat-form-field appearance="fill" class="w-100">
@@ -59,6 +59,12 @@
                 </button>                 
               </div>
           </div>
+
+          <div class="col-md-7">
+            <app-image-uploader (onUploadFinished)="uploadFinished($event)" [config]="uploaderConfig"
+              [imagesNames]="images"></app-image-uploader>    
+          </div>
+
         </div>              
     </form>
   

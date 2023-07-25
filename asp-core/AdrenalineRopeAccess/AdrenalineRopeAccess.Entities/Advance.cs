@@ -1,4 +1,6 @@
-﻿namespace AdrenalineRopeAccess.Entities
+﻿using AdrenalineRopeAccess.Entities.Employees;
+
+namespace AdrenalineRopeAccess.Entities
 {
     public class Advance
     {

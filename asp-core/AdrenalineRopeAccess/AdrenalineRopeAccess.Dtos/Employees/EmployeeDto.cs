@@ -1,9 +1,14 @@
-﻿using AdrenalineRopeAccess.Utils.Enums;
+﻿using AdrenalineRopeAccess.Dtos.Uploaders;
+using AdrenalineRopeAccess.Utils.Enums;
 
 namespace AdrenalineRopeAccess.Dtos.Employees
 {
     public class EmployeeDto
     {
+        public EmployeeDto()
+        {
+            Images = new List<UploaderImageDto>();
+        }
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,5 +20,6 @@ namespace AdrenalineRopeAccess.Dtos.Employees
         public Nationality Nationality { get; set; }
         public string MobileNumber { get; set; }
         public Rank Rank { get; set; }
+        public List<UploaderImageDto> Images { get; set; }
     }
 }

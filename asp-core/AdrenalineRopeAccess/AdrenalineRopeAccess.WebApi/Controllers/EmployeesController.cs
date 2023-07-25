@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AdrenalineRopeAccess.EfCore;
-using AdrenalineRopeAccess.Entities;
 using AutoMapper;
 using AdrenalineRopeAccess.Dtos.Employees;
 using AdrenalineRopeAccess.Dtos.Lookups;
+using AdrenalineRopeAccess.Entities.Employees;
 
 namespace AdrenalineRopeAccess.WebApi.Controllers
 {
@@ -41,6 +41,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
 
             var employee = await _context.Employees
                                          .Include(e => e.Advances)
+                                         .Include(e => e.Images)
                                          .SingleOrDefaultAsync(e => e.Id == id);
 
             if (employee == null)
@@ -68,6 +69,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
         public async Task<IActionResult> EditEmployee(int id, EmployeeDto employeeDto)
         {
             var employee = await _context.Employees
+                                         .Include (e => e.Images)
                                          .SingleAsync(e => e.Id == id);
 
             _mapper.Map(employeeDto, employee);
@@ -96,6 +98,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
         {
             var employee = await _context
                                     .Employees
+                                    .Include(e => e.Images)
                                     .SingleOrDefaultAsync(c => c.Id == id);
 
             if (employee == null)

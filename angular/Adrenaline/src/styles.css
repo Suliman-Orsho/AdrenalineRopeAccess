@@ -5,6 +5,8 @@ nav .navbar-nav li a{
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+
 .pointer {
     
     cursor: pointer;
@@ -12,7 +14,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .section-title {
     font-size: 1.2rem;
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
@@ -167,4 +169,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
     .back-to-top i {
         color: #fff;
+    }
+
+
+    .custom-list-group.list-group-flush > .list-group-item {
+        border: 0;
+    }
+    
+        .custom-list-group.list-group-flush > .list-group-item a {
+            color: #dc3545;
+            text-decoration: none;
+        }
+    
+            .custom-list-group.list-group-flush > .list-group-item a i {
+                font-size: 0.8rem;
+                color: #dc3545 !important;
+            }
+    
+    .custom-list-group .list-group-item {
+        background-color: black !important;
+    }
+    
+    .custom-bg-nav {
+        background-color: #151313;
     }

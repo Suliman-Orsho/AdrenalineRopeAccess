@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AdrenalineRopeAccess.Dtos\AdrenalineRopeAccess.Dtos.csproj" />
     <ProjectReference Include="..\AdrenalineRopeAccess.EfCore\AdrenalineRopeAccess.EfCore.csproj" />
+    <ProjectReference Include="..\AdrenalineRopeAccess.Entities\AdrenalineRopeAccess.Entities.csproj" />
   </ItemGroup>
 
 </Project>

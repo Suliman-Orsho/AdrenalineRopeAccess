@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Work } from '../enums/work.enum';
@@ -16,6 +16,8 @@ export class ProjectComponent implements OnInit {
 
   projectDS: ProjectList[] = [];
   projectColumns: string[] = ['name', 'work', 'income', 'isPaid', 'spending', 'startDate', 'finishDate', 'actions' ];
+
+  startDate = this.projectColumns?.[5];
 
   work = Work;
 
@@ -62,6 +64,7 @@ export class ProjectComponent implements OnInit {
     this.projectSvc.getProjects().subscribe({
       next: (projectsFromApi: ProjectList[]) => {
         this.projectDS = projectsFromApi;
+        
       },
       error: (err: HttpErrorResponse) => {
         console.error(err.message);

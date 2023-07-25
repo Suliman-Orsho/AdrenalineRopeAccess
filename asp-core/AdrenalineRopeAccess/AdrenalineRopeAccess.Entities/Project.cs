@@ -1,4 +1,6 @@
-﻿using AdrenalineRopeAccess.Utils.Enums;
+﻿using AdrenalineRopeAccess.Entities.Employees;
+using AdrenalineRopeAccess.Entities.Equipments;
+using AdrenalineRopeAccess.Utils.Enums;
 
 namespace AdrenalineRopeAccess.Entities
 {

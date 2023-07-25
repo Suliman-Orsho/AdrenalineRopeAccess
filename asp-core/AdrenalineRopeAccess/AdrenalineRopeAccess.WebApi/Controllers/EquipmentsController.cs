@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AdrenalineRopeAccess.EfCore;
-using AdrenalineRopeAccess.Entities;
 using AutoMapper;
 using AdrenalineRopeAccess.Dtos.Equipments;
 using AdrenalineRopeAccess.Dtos.Projects;
 using AdrenalineRopeAccess.Dtos.Advances;
+using AdrenalineRopeAccess.Entities.Equipments;
 
 namespace AdrenalineRopeAccess.WebApi.Controllers
 {
@@ -43,6 +43,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
 
             var equipment = await _context.Equipments
                                           .Include(e => e.Project)
+                                          .Include (e => e.Images)
                                           .SingleAsync(e => e.Id == id);
 
             if (equipment == null)
@@ -61,6 +62,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             var equipment = await _context
                                     .Equipments
                                     .Include(e => e.Project)
+                                    .Include (e => e.Images)
                                     .SingleOrDefaultAsync(c => c.Id == id);
 
             if (equipment == null)
@@ -93,6 +95,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
         {
             var equipment = await _context.Equipments
                                           .Include(e => e.Project)
+                                          .Include(e => e.Images)
                                           .SingleAsync(e => e.Id == id);
 
             _mapper.Map(equipmentDto, equipment);

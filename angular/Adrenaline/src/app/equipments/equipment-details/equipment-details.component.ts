@@ -1,6 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ImageUploaderConfig } from 'src/app/directives/image-uploader/image-uploader.config';
+import { UploaderMode, UploaderStyle, UploaderType } from 'src/app/directives/image-uploader/uploader.enums';
+import { UploaderImage } from 'src/app/directives/image-uploader/UploaderImage.data';
 import { EquipmentDetails } from 'src/app/models/equipments/equipmentDetails.model';
 import { EquipmentService } from 'src/app/services/equipment.service';
 
@@ -10,6 +13,9 @@ import { EquipmentService } from 'src/app/services/equipment.service';
   styleUrls: ['./equipment-details.component.css']
 })
 export class EquipmentDetailsComponent implements OnInit {
+
+  images: UploaderImage[] = [];
+  uploaderConfig = new ImageUploaderConfig(UploaderStyle.Normal, UploaderMode.Details, UploaderType.Multiple);
   
   equipmentId!: number;
   equipment!: EquipmentDetails;
@@ -47,6 +53,7 @@ export class EquipmentDetailsComponent implements OnInit {
     this.equipmentSvc.getEquipment(this.equipmentId).subscribe({
       next:(equipmentFromApi: EquipmentDetails) => {
           this.equipment = equipmentFromApi;
+          this.images = this.equipment.images;
       },
       error:(err: HttpErrorResponse) => {
           console.error(err.message);

@@ -1,4 +1,6 @@
-﻿namespace AdrenalineRopeAccess.Dtos.Equipments
+﻿using AdrenalineRopeAccess.Dtos.Uploaders;
+
+namespace AdrenalineRopeAccess.Dtos.Equipments
 {
     public class EquipmentDetailsDto
     {
@@ -7,5 +9,7 @@
         public DateTime EntryDate { get; set; }
         public string ProjectName { get; set; }
         public int ProjectId { get; set; }
+        public List<UploaderImageDto> Images { get; set; }
+
     }
 }

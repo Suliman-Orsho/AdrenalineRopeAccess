@@ -1,5 +1,5 @@
 ﻿using AdrenalineRopeAccess.Dtos.Employees;
-using AdrenalineRopeAccess.Entities;
+using AdrenalineRopeAccess.Entities.Employees;
 using AutoMapper;
 
 namespace AdrenalineRopeAccess.WebApi.AutoMapperProfiles

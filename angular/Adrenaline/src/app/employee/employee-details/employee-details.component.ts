@@ -1,6 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ImageUploaderConfig } from 'src/app/directives/image-uploader/image-uploader.config';
+import { UploaderMode, UploaderStyle, UploaderType } from 'src/app/directives/image-uploader/uploader.enums';
+import { UploaderImage } from 'src/app/directives/image-uploader/UploaderImage.data';
 import { Address } from 'src/app/enums/address.enum';
 import { Gender } from 'src/app/enums/gender.enum';
 import { Nationality } from 'src/app/enums/nationality.enum';
@@ -14,6 +17,9 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
+
+  images: UploaderImage[] = [];
+  uploaderConfig = new ImageUploaderConfig(UploaderStyle.Profile, UploaderMode.Details, UploaderType.Single);
   
   employeeId!: number;
   employee!: EmployeeDetails;
@@ -57,6 +63,7 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employeeSvc.getEmployee(this.employeeId).subscribe({
       next:(employeeFromApi: EmployeeDetails) => {
           this.employee = employeeFromApi;
+          this.images = this.employee.images;
       },
       error:(err: HttpErrorResponse) => {
           console.error(err.message);

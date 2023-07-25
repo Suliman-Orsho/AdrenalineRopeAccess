@@ -1,0 +1,24 @@
+.img img {
+    border: 1px solid #ccc;
+  }
+  
+  .profile-style .img img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+  }
+
+  .normal-style .img img {
+    width: 400px;
+    height: 250px;
+    border-radius: 10%;
+  }
+  
+  .profile-mode .progress {
+    width: 140px;
+    margin: auto;
+  }
+  
+  .normal-mode .img img {
+    max-height: 400px;
+  }

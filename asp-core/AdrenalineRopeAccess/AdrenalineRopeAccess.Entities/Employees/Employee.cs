@@ -1,7 +1,7 @@
 ﻿using AdrenalineRopeAccess.Utils.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AdrenalineRopeAccess.Entities
+namespace AdrenalineRopeAccess.Entities.Employees
 {
     public class Employee
     {
@@ -9,6 +9,7 @@ namespace AdrenalineRopeAccess.Entities
         {
             Advances = new List<Advance>();
             Projects = new List<Project>();
+            Images = new List<EmployeeImage>();
         }
 
         public int Id { get; set; }
@@ -25,6 +26,9 @@ namespace AdrenalineRopeAccess.Entities
         public List<Advance> Advances { get; set; }
 
         public List<Project> Projects { get; set; }
+
+        public List<EmployeeImage> Images { get; set; }
+
 
         [NotMapped]
         public string FullName

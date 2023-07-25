@@ -4,65 +4,71 @@
 
     <hr>
     
-      
+    <div class="row">
+      <div class="col-md-5">
         <div class="row mt-2">
-          <div class="col-md-2 fw-bold">Id</div>
-          <div class="col-md-4">{{ employee.id}}</div>
+          <div class="col-md-5 fw-bold">Id</div>
+          <div class="col-md-5">{{ employee.id}}</div>
         </div>
       
         <div class="row mt-2">
-          <div class="col-md-2 fw-bold">Gender</div>
-          <div class="col-md-4">{{gender[employee.gender]}}</div>
+          <div class="col-md-5 fw-bold">Gender</div>
+          <div class="col-md-5">{{gender[employee.gender]}}</div>
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-2 fw-bold">Irata Level</div>
-            <div class="col-md-4">{{ employee.irataLevel }}</div>
+            <div class="col-md-5 fw-bold">Irata Level</div>
+            <div class="col-md-5">{{ employee.irataLevel }}</div>
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-2 fw-bold">Address</div>
-            <div class="col-md-4">{{address[employee.address]}}</div>
+            <div class="col-md-5 fw-bold">Address</div>
+            <div class="col-md-5">{{address[employee.address]}}</div>
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-2 fw-bold">Nationality</div>
-            <div class="col-md-4">{{nationality[employee.nationality]}}</div>
+            <div class="col-md-5 fw-bold">Nationality</div>
+            <div class="col-md-5">{{nationality[employee.nationality]}}</div>
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-2 fw-bold">Rank</div>
-            <div class="col-md-4">{{rank[employee.rank]}}</div>
+            <div class="col-md-5 fw-bold">Rank</div>
+            <div class="col-md-5">{{rank[employee.rank]}}</div>
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-2 fw-bold">Salary</div>
-            <div class="col-md-4">{{ employee.salary | currency}}</div>
+            <div class="col-md-5 fw-bold">Salary</div>
+            <div class="col-md-5">{{ employee.salary | currency}}</div>
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-2 fw-bold">Total Advances</div>
-            <div class="col-md-4">{{ employee.totalAdvances | currency}}</div>
+            <div class="col-md-5 fw-bold">Total Advances</div>
+            <div class="col-md-5">{{ employee.totalAdvances | currency}}</div>
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-2 fw-bold">Date Of Birth</div>
-            <div class="col-md-4">{{ employee.dob | date: 'short'}}</div>
+            <div class="col-md-5 fw-bold">Date Of Birth</div>
+            <div class="col-md-5">{{ employee.dob | date: 'short'}}</div>
         </div>
 
         <div class="row mt-2">  
-          <div class="col-md-2 fw-bold">Age</div>
-          <div class="col-md-4">{{ employee.age }}</div>
+          <div class="col-md-5 fw-bold">Age</div>
+          <div class="col-md-5">{{ employee.age }}</div>
         </div>
       
         <div class="row mt-2">
-          <div class="col-md-2 fw-bold">Mobile Number</div>
-          <div class="col-md-4">{{ employee.mobileNumber }}</div>
+          <div class="col-md-5 fw-bold">Mobile Number</div>
+          <div class="col-md-5">{{ employee.mobileNumber }}</div>
         </div>
 
-    <div class="btns mt-3">
-        <button class="btn btn-secondary" [routerLink]="['/employees']">Back</button>
-        <button class="btn btn-primary ms-2" [routerLink]="['/employees/edit', employee.id]">Edit</button>
-    </div>
+        <div class="btns mt-3">
+            <button class="btn btn-secondary" [routerLink]="['/employees']">Back</button>
+            <button class="btn btn-primary ms-2" [routerLink]="['/employees/edit', employee.id]">Edit</button>
+        </div>
+      </div>
+        <div class="col-md-4">
+            <app-image-uploader [config]="uploaderConfig" [imagesNames]="images"></app-image-uploader>
+        </div>
 
+    </div>
 </div>

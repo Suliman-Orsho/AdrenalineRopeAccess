@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImageUploaderConfig } from 'src/app/directives/image-uploader/image-uploader.config';
+import { UploaderMode, UploaderStyle, UploaderType } from 'src/app/directives/image-uploader/uploader.enums';
+import { UploaderImage } from 'src/app/directives/image-uploader/UploaderImage.data';
 import { Address } from 'src/app/enums/address.enum';
 import { Gender } from 'src/app/enums/gender.enum';
 import { Nationality } from 'src/app/enums/nationality.enum';
@@ -17,6 +20,9 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./add-edit-employee.component.css']
 })
 export class AddEditEmployeeComponent implements OnInit {
+
+  images: UploaderImage[] = [];
+  uploaderConfig = new ImageUploaderConfig(UploaderStyle.Profile, UploaderMode.AddEdit, UploaderType.Single);
 
   employeeForm!: FormGroup;
 
@@ -64,6 +70,12 @@ export class AddEditEmployeeComponent implements OnInit {
     }
   }
 
+  uploadFinished(uploaderImages: UploaderImage[]) {
+
+    this.employeeForm.patchValue({
+      images: uploaderImages
+    });
+  }
 
     //#region Private Functions
 
@@ -81,6 +93,7 @@ export class AddEditEmployeeComponent implements OnInit {
         nationality: ['', Validators.required],
         mobileNumber: ['', Validators.required],
         rank: ['', Validators.required],  
+        images: [[]]
       });
     }
   
@@ -99,6 +112,10 @@ export class AddEditEmployeeComponent implements OnInit {
         next: (employeeFromApi: Employee) => {
           this.employee = employeeFromApi;
           this.patchEmployeeForm();
+
+          if (employeeFromApi.images) {
+            this.images = employeeFromApi.images;
+          }
         },
         error: (err: HttpErrorResponse) => {
           console.error(err.error);
@@ -121,6 +138,8 @@ export class AddEditEmployeeComponent implements OnInit {
         nationality: this.employee.nationality,
         mobileNumber: this.employee.mobileNumber,
         rank: this.employee.rank,
+        images: this.employee.images
+
       });
     }
   

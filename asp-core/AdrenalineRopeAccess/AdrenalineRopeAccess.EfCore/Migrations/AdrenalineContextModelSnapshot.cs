@@ -22,6 +22,8 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.HasSequence("UploaderImageSequence");
+
             modelBuilder.Entity("AdrenalineRopeAccess.Entities.Advance", b =>
                 {
                     b.Property<int>("Id")
@@ -43,10 +45,10 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Advances", (string)null);
+                    b.ToTable("Advances");
                 });
 
-            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Employee", b =>
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Employees.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,10 +91,10 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Equipment", b =>
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Equipments.Equipment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -114,7 +116,7 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Equipments", (string)null);
+                    b.ToTable("Equipments");
                 });
 
             modelBuilder.Entity("AdrenalineRopeAccess.Entities.Project", b =>
@@ -156,7 +158,27 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Projects", (string)null);
+                    b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.UploaderImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("NEXT VALUE FOR [UploaderImageSequence]");
+
+                    SqlServerPropertyBuilderExtensions.UseSequence(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UploaderImages", (string)null);
+
+                    b.UseTpcMappingStrategy();
                 });
 
             modelBuilder.Entity("EmployeeProject", b =>
@@ -171,12 +193,36 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
                     b.HasIndex("ProjectsId");
 
-                    b.ToTable("EmployeeProject", (string)null);
+                    b.ToTable("EmployeeProject");
+                });
+
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Employees.EmployeeImage", b =>
+                {
+                    b.HasBaseType("AdrenalineRopeAccess.Entities.UploaderImage");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("EmployeeImages", (string)null);
+                });
+
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Equipments.EquipmentImage", b =>
+                {
+                    b.HasBaseType("AdrenalineRopeAccess.Entities.UploaderImage");
+
+                    b.Property<int>("EquipmentId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("EquipmentId");
+
+                    b.ToTable("EquipmentImages", (string)null);
                 });
 
             modelBuilder.Entity("AdrenalineRopeAccess.Entities.Advance", b =>
                 {
-                    b.HasOne("AdrenalineRopeAccess.Entities.Employee", "Employee")
+                    b.HasOne("AdrenalineRopeAccess.Entities.Employees.Employee", "Employee")
                         .WithMany("Advances")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -185,7 +231,7 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Equipment", b =>
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Equipments.Equipment", b =>
                 {
                     b.HasOne("AdrenalineRopeAccess.Entities.Project", "Project")
                         .WithMany("Equipments")
@@ -196,7 +242,7 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
 
             modelBuilder.Entity("EmployeeProject", b =>
                 {
-                    b.HasOne("AdrenalineRopeAccess.Entities.Employee", null)
+                    b.HasOne("AdrenalineRopeAccess.Entities.Employees.Employee", null)
                         .WithMany()
                         .HasForeignKey("EmployeesId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -209,9 +255,34 @@ namespace AdrenalineRopeAccess.EfCore.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Employee", b =>
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Employees.EmployeeImage", b =>
+                {
+                    b.HasOne("AdrenalineRopeAccess.Entities.Employees.Employee", null)
+                        .WithMany("Images")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Equipments.EquipmentImage", b =>
+                {
+                    b.HasOne("AdrenalineRopeAccess.Entities.Equipments.Equipment", null)
+                        .WithMany("Images")
+                        .HasForeignKey("EquipmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Employees.Employee", b =>
                 {
                     b.Navigation("Advances");
+
+                    b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("AdrenalineRopeAccess.Entities.Equipments.Equipment", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("AdrenalineRopeAccess.Entities.Project", b =>

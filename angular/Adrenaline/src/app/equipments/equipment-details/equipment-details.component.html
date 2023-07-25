@@ -3,25 +3,32 @@
     <h2><span class="text-primary">{{ equipment.name }}</span> Details</h2>
 
     <hr>
-          
+       
+    <div class="row">   
+      <div class="col-md-6">
         <div class="row mt-2">
-          <div class="col-md-2 fw-bold">Id</div>
+          <div class="col-md-4 fw-bold">Id</div>
           <div class="col-md-4">{{ equipment.id}}</div>
         </div>
       
         <div class="row mt-2">
-          <div class="col-md-2 fw-bold">Project Name</div>
+          <div class="col-md-4 fw-bold">Project Name</div>
           <div class="col-md-4">{{equipment.projectName}}</div>
         </div>
 
         <div class="row mt-2">
-            <div class="col-md-2 fw-bold">Entry Date</div>
+            <div class="col-md-4 fw-bold">Entry Date</div>
             <div class="col-md-4">{{ equipment.entryDate | date: 'short'}}</div>
         </div>       
 
-    <div class="btns mt-3">
-        <button class="btn btn-secondary" [routerLink]="['/equipments']">Back</button>
-        <button class="btn btn-primary ms-2" [routerLink]="['/equipments/edit', equipment.id]">Edit</button>
-    </div>
+        <div class="btns mt-3">
+          <button class="btn btn-secondary" [routerLink]="['/equipments']">Back</button>
+          <button class="btn btn-primary ms-2" [routerLink]="['/equipments/edit', equipment.id]">Edit</button>
+        </div>
+      </div>
 
+      <div class="col-md-4">
+        <app-image-uploader [config]="uploaderConfig" [imagesNames]="images"></app-image-uploader>
+      </div>
+    </div>
 </div>

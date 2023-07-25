@@ -25,6 +25,8 @@ import { EquipmentComponent } from './equipments/equipment.component';
 import { EquipmentDetailsComponent } from './equipments/equipment-details/equipment-details.component';
 import { AddEditEquipmentComponent } from './equipments/add-edit-equipment/add-edit-equipment.component';
 import { DeleteEquipmentComponent } from './equipments/delete-equipment/delete-equipment.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ImageUploaderComponent } from './directives/image-uploader/image-uploader.component';
 
 
 @NgModule({
@@ -47,14 +49,16 @@ import { DeleteEquipmentComponent } from './equipments/delete-equipment/delete-e
     EquipmentComponent,
     EquipmentDetailsComponent,
     AddEditEquipmentComponent,
-    DeleteEquipmentComponent
+    DeleteEquipmentComponent,
+    ImageUploaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   providers: [
     {

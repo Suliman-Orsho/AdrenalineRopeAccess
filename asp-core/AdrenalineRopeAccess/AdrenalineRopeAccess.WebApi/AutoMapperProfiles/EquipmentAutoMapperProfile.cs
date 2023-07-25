@@ -1,5 +1,5 @@
 ﻿using AdrenalineRopeAccess.Dtos.Equipments;
-using AdrenalineRopeAccess.Entities;
+using AdrenalineRopeAccess.Entities.Equipments;
 using AutoMapper;
 
 namespace AdrenalineRopeAccess.WebApi.AutoMapperProfiles
