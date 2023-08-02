@@ -3,6 +3,8 @@ import { Address } from "src/app/enums/address.enum";
 import { Gender } from "src/app/enums/gender.enum";
 import { Nationality } from "src/app/enums/nationality.enum";
 import { Rank } from "src/app/enums/rank.enum";
+import { ProjectDetails } from "../projects/projectDetails.model";
+import { ProjectList } from "../projects/projectList.model";
 
 export interface EmployeeDetails {
     id: number;
@@ -18,5 +20,5 @@ export interface EmployeeDetails {
     totalAdvances: number;
     age: number;
     images: UploaderImage[];
-
+    projects: ProjectList[];
 }

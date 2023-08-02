@@ -19,6 +19,7 @@ export class ProjectComponent implements OnInit {
 
   startDate = this.projectColumns?.[5];
 
+
   work = Work;
 
   constructor(

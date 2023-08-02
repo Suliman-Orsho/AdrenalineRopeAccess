@@ -24,7 +24,10 @@
       
           <ng-container matColumnDef="isPaid">
             <th mat-header-cell *matHeaderCellDef> Is Paid </th>
-            <td mat-cell *matCellDef="let project"> {{project.isPaid}} </td>
+            <td mat-cell *matCellDef="let project">
+              <i class="fa-solid fa-circle-xmark text-danger " *ngIf="project.isPaid == false"></i>
+              <i class="fa-solid fa-circle-check text-success" *ngIf="project.isPaid == true"></i>
+            </td>
           </ng-container>
       
           <ng-container matColumnDef="spending">

@@ -8,7 +8,10 @@ import { Address } from 'src/app/enums/address.enum';
 import { Gender } from 'src/app/enums/gender.enum';
 import { Nationality } from 'src/app/enums/nationality.enum';
 import { Rank } from 'src/app/enums/rank.enum';
+import { Work } from 'src/app/enums/work.enum';
 import { EmployeeDetails } from 'src/app/models/employees/employeeDetails.model';
+import { ProjectDetails } from 'src/app/models/projects/projectDetails.model';
+import { ProjectList } from 'src/app/models/projects/projectList.model';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
@@ -17,6 +20,9 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
+
+  projectDS: ProjectList[] = [];
+  projectColumns: string[] = ['name', 'work'];
 
   images: UploaderImage[] = [];
   uploaderConfig = new ImageUploaderConfig(UploaderStyle.Profile, UploaderMode.Details, UploaderType.Single);
@@ -28,6 +34,8 @@ export class EmployeeDetailsComponent implements OnInit {
   gender = Gender;
   nationality = Nationality;
   rank = Rank;
+
+  work = Work;
 
 
   constructor(
@@ -55,6 +63,7 @@ export class EmployeeDetailsComponent implements OnInit {
     if(this.activatedRoute.snapshot.paramMap.get('id'))
     {
       this.employeeId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+
     }
   }
 
@@ -64,6 +73,7 @@ export class EmployeeDetailsComponent implements OnInit {
       next:(employeeFromApi: EmployeeDetails) => {
           this.employee = employeeFromApi;
           this.images = this.employee.images;
+          this.projectDS = this.employee.projects;
       },
       error:(err: HttpErrorResponse) => {
           console.error(err.message);

@@ -26,7 +26,10 @@
 
         <div class="row mt-2">
             <div class="col-md-2 fw-bold">IsPaid</div>
-            <div class="col-md-4">{{project.isPaid}}</div>
+            <div class="col-md-4">
+              <i class="fa-solid fa-circle-xmark text-danger " *ngIf="project.isPaid == false"></i>
+              <i class="fa-solid fa-circle-check text-success" *ngIf="project.isPaid == true"></i>
+            </div>
         </div>
 
         <div class="row mt-2">

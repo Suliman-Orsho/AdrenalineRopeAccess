@@ -42,6 +42,7 @@ namespace AdrenalineRopeAccess.WebApi.Controllers
             var employee = await _context.Employees
                                          .Include(e => e.Advances)
                                          .Include(e => e.Images)
+                                         .Include(e => e.Projects)
                                          .SingleOrDefaultAsync(e => e.Id == id);
 
             if (employee == null)

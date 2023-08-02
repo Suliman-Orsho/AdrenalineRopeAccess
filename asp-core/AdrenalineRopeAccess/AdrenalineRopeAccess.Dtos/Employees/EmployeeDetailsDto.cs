@@ -1,4 +1,5 @@
-﻿using AdrenalineRopeAccess.Dtos.Uploaders;
+﻿using AdrenalineRopeAccess.Dtos.Projects;
+using AdrenalineRopeAccess.Dtos.Uploaders;
 using AdrenalineRopeAccess.Utils.Enums;
 
 namespace AdrenalineRopeAccess.Dtos.Employees
@@ -18,5 +19,6 @@ namespace AdrenalineRopeAccess.Dtos.Employees
         public double TotalAdvances { get; set; }
         public int Age { get; set; }
         public List<UploaderImageDto> Images { get; set; }
+        public List<ProjectListDto> Projects { get; set; }
     }
 }
