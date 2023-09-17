@@ -58,7 +58,8 @@ import { ImageUploaderComponent } from './directives/image-uploader/image-upload
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    NgbModule
+    NgbModule,
+
   ],
   providers: [
     {

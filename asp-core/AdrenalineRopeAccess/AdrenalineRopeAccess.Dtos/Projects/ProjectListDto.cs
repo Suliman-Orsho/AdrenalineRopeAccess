@@ -10,7 +10,7 @@ namespace AdrenalineRopeAccess.Dtos.Projects
         public int Income { get; set; }
         public bool IsPaid { get; set; }
         public int Spending { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime FinishDate { get; set; }               
+        public DateTime? StartDate { get; set; }
+        public DateTime? FinishDate { get; set; }               
     }
 }

@@ -1,4 +1,4 @@
-<div class="container my-3">
+<div class="container my-3 text-white">
     <h2>
   
       <ng-container *ngIf="pageMode == pageModeEnum.add; else pageTitleElse">
@@ -14,28 +14,28 @@
   
     <form class="mt-4" [formGroup]="employeeForm" (ngSubmit)="submitForm()">
 
-      <div class="row">
+      <div class="row ">
   
         <div class="col-md-4">
           <div>
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>First Name</mat-label>
-              <input matInput placeholder="FirstName" formControlName="firstName">
+              <mat-label class=" text-white">First Name</mat-label>
+              <input matInput placeholder="FirstName" formControlName="firstName" class=" text-white">
             </mat-form-field>
           </div>
 
           <div>
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Last Name</mat-label>
-              <input matInput placeholder="LastName" formControlName="lastName">
+              <mat-label class=" text-white">Last Name</mat-label>
+              <input matInput placeholder="LastName" formControlName="lastName" class=" text-white">
             </mat-form-field>
           </div>
 
           <div>
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Gender</mat-label>
-              <mat-select formControlName="gender">
-                <mat-option *ngFor="let gender of genderEnum | enumToArray" [value]="gender.index">
+              <mat-label class=" text-white">Gender</mat-label>
+              <mat-select formControlName="gender" class=" text-white">
+                <mat-option *ngFor="let gender of genderEnum | enumToArray" [value]="gender.index" class=" text-white">
                   {{ gender.name }}
                 </mat-option>
               </mat-select>
@@ -44,8 +44,8 @@
 
           <div>
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Date of birth</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="dob">
+              <mat-label class=" text-white">Date of birth</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dob" class=" text-white">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -53,9 +53,9 @@
 
           <div>
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Address</mat-label>
-              <mat-select formControlName="address">
-                <mat-option *ngFor="let address of addressEnum | enumToArray" [value]="address.index">
+              <mat-label class=" text-white">Address</mat-label>
+              <mat-select formControlName="address" class=" text-white">
+                <mat-option *ngFor="let address of addressEnum | enumToArray" [value]="address.index" class=" text-white">
                   {{ address.name }}
                 </mat-option>
               </mat-select>
@@ -82,7 +82,7 @@
         <div class="col-md-4">                   
           <div>
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Nationality</mat-label>
+              <mat-label class=" text-white">Nationality</mat-label>
               <mat-select formControlName="nationality">
                 <mat-option *ngFor="let nationality of nationalityEnum | enumToArray" [value]="nationality.index">
                   {{ nationality.name }}
@@ -93,7 +93,7 @@
 
           <div>
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Rank</mat-label>
+              <mat-label class=" text-white">Rank</mat-label>
               <mat-select formControlName="rank">
                 <mat-option *ngFor="let rank of rankEnum | enumToArray" [value]="rank.index">
                   {{ rank.name }}
@@ -104,24 +104,24 @@
 
           <div class="">
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Irata Level</mat-label>
-              <input matInput formControlName="irataLevel" required>
+              <mat-label class=" text-white">Irata Level</mat-label>
+              <input matInput formControlName="irataLevel" required class=" text-white">
               <mat-error>Irata Level is required</mat-error>
             </mat-form-field>
           </div>
 
           <div class="">
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Mobile Number</mat-label>
-              <input matInput formControlName="mobileNumber" required>
+              <mat-label class=" text-white">Mobile Number</mat-label>
+              <input matInput formControlName="mobileNumber" required class=" text-white">
               <mat-error>Mobile number is required</mat-error>
             </mat-form-field>
           </div>
 
           <div class="">
             <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Salary</mat-label>
-              <input matInput formControlName="salary" required>
+              <mat-label class=" text-white">Salary</mat-label>
+              <input matInput formControlName="salary" required class=" text-white">
               <mat-error>Salary is required</mat-error>
             </mat-form-field>
           </div>

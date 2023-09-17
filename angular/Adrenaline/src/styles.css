@@ -6,9 +6,17 @@ html, body { height: 100%; }
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+    /* background-color: black; */
+    background-image: url("https://media.istockphoto.com/id/537616872/photo/rope-access-equipments-on-inspector-man.jpg?s=612x612&w=0&k=20&c=PUoLMideFRFza5D5_3-SzJleDM_bJ80kKO2G-T21p8Q=");
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
 }
 
+.nav-bg-section {
+    background-color: #151313;
+}
 
 
 .pointer {
@@ -17,13 +25,19 @@ body {
 }
 
 .section-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: black;
     font-weight: bold;
 }
 
+.section-services-title {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;   
+}
+
 .section-sub-title {
-    color: #c6bcbc;
+    color: rgba(255, 0, 0, 0.795);
     font-size: 2rem;
     font-weight: bold;
 }
@@ -33,7 +47,7 @@ body {
 }
 
 .bg-section {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.336);
 }
 
 .main-title {
@@ -63,9 +77,10 @@ body {
 }
 
 .text {
-    color: #c6bcbc;
+    color: black;
     font-size: 18px;
 }
+
 
 .info-card {
     background-color: #fff;
@@ -121,7 +136,7 @@ body {
 }
 
 .section-info{
-    background-color: #151313;
+    background-color: #151313c7;
 }
 
 .section-accordion {
@@ -197,3 +212,45 @@ body {
     .custom-bg-nav {
         background-color: #151313;
     }
+
+.accordion {
+    background-color: #151313;
+}
+
+.accordion-body {
+    background-color: rgba(0, 0, 0, 0.342) !important;
+    color: rgb(255, 30, 0) !important;
+}
+
+.section-table {
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+.mdc-menu-surface {
+    background-color: rgba(0, 0, 0, 0.712) !important;
+
+}
+
+.mat-mdc-option .mdc-list-item__primary-text {
+    color: white !important;
+}
+
+.mat-mdc-select-value {
+    color: white;
+}
+
+
+
+
+
+#RopeAccessCarousel .carousel-item {
+    height: 500px;
+  }
+  
+  .carousel-caption {
+    font-size: 18px;
+  }
+  
+  .carousel-item>img {
+    width: 100%
+  }

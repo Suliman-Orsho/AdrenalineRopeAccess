@@ -17,7 +17,8 @@ export class ProjectComponent implements OnInit {
   projectDS: ProjectList[] = [];
   projectColumns: string[] = ['name', 'work', 'income', 'isPaid', 'spending', 'startDate', 'finishDate', 'actions' ];
 
-  startDate = this.projectColumns?.[5];
+    //  startDate = this.projectColumns?.[5];
+    //  FinishDate = this.projectColumns?.[6];
 
 
   work = Work;

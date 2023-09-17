@@ -9,8 +9,8 @@ export interface ProjectDetails {
     income: number;
     isPaid: boolean;
     spending: number;
-    startDate: string;
-    finishDate: string;
+    startDate?: string;
+    finishDate?: string;
     clientNumber: string;
     linesCount: number;
     employees: EmployeeList[];

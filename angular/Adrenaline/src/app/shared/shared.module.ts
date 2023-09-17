@@ -12,11 +12,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+// import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [],
-  imports: [    
+  imports: [
   ],
   exports: [
     MatTableModule,
@@ -31,7 +31,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSelectModule,
     MatPaginatorModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    // SlickCarouselModule
   ]
 })
 export class SharedModule { }

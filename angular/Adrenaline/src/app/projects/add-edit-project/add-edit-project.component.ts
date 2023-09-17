@@ -26,6 +26,10 @@ export class AddEditProjectComponent implements OnInit {
   project!: Project;
   pageMode: PageMode = PageMode.add;
 
+  // isPaid = this.project.isPaid;
+  
+  
+
   pageModeEnum = PageMode;
 
   constructor(

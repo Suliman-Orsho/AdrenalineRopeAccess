@@ -8,6 +8,6 @@ export interface ProjectList {
     income: number;
     isPaid: boolean;
     spending: number;
-    startDate: string;
-    finishDate: string;    
+    startDate?: string;
+    finishDate?: string;    
 }

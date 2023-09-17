@@ -1,5 +1,5 @@
 <div class="container my-3">
-    <h2>
+    <h2 class="text-white">
   
       <ng-container *ngIf="pageMode == pageModeEnum.add; else pageTitleElse">
         <span>Add Advance</span>
@@ -17,8 +17,8 @@
         <div class="row">
           <div class="col-md-6">
             <div>
-                <mat-form-field appearance="fill" class="w-100">
-                <mat-label>Employee</mat-label>
+                <mat-form-field appearance="outline" class="w-100">
+                <mat-label class="text-white">Employee</mat-label>
                 <mat-select formControlName="employeeId">
                     <mat-option *ngFor="let employee of employeeLookup" [value]="employee.id">
                     {{employee.name}}
@@ -28,9 +28,9 @@
             </div>
 
             <div>
-              <mat-form-field appearance="fill" class="w-100">
-                <mat-label>Amount</mat-label>
-                <input matInput placeholder="Amount" formControlName="amount">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label class="text-white">Amount</mat-label>
+                <input matInput placeholder="Amount" formControlName="amount" class="text-white">
                 <mat-error>Amount is required.</mat-error>
               </mat-form-field>
             </div>
